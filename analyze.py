@@ -4,9 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Load the data
-df = pd.read_excel('Dataset_for_suicide_pevention.xlsx')
-
-print(df.head())
+df = pd.read_excel('./Dataset_for_suicide_prevention.xlsx')
 print(df.info())
 
 # Severity distribution
@@ -15,5 +13,6 @@ sns.countplot(x='Severity', data=df, order=['בלתי ניתנת להכלה', '�
 plt.title("Distribution of Severity Levels")
 plt.xlabel("Severity Level")
 plt.ylabel("Number of Records")
-plt.xticks(rotaiton=45)
+plt.xticks(rotation=45)
 plt.show()
+
