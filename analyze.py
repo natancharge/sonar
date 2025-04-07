@@ -16,3 +16,11 @@ plt.ylabel("Number of Records")
 plt.xticks(rotation=45)
 plt.show()
 
+# Distribution of numeric severity
+plt.figure(figsize=(8, 6))
+sns.histplot(df['SeverityNumeric'], bins=np.arange(1, 8)-0.5, kde=True)
+plt.title("Numeric Severity Distribution")
+plt.xlabel("Severity Numeric")
+plt.ylabel("Frequency")
+plt.xticks(range(1, 7))
+plt.show()
