@@ -24,3 +24,12 @@ plt.xlabel("Severity Numeric")
 plt.ylabel("Frequency")
 plt.xticks(range(1, 7))
 plt.show()
+
+# Most common trigger words
+trigger_counts = df['TriggerWords'].value_counts().head(10)
+plt.figure(figsize=(10, 6))
+sns.barplot(y=trigger_counts.index, x=trigger_counts.values)
+plt.title("Top 10 Trigger Words")
+plt.xlabel("Number of Occurrences")
+plt.ylabel("Trigger word")
+plt.show()
