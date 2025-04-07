@@ -4,7 +4,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Load the data
-df = pd.read_excel('./Dataset_for_suicide_prevention.xlsx')
+df_og = pd.read_excel('./Dataset_for_suicide_prevention.xlsx')
+df = df_og.drop_duplicates()
 print(df.info())
 
 # Severity distribution
@@ -35,10 +36,22 @@ plt.ylabel("Trigger word")
 plt.show()
 
 # Correlation heatmap (numeric fields)
-plt.figure(figsize=(8, 6))
-sns.heatmap(df.select_dtypes(include=[np.number]).corr(), annot=True, cmap="coolwarm")
-plt.title("Correlation Heatmap of Numeric Features")
+plt.figure(figsize=(10, 8))
+numeric_corr = df.select_dtypes(include=[np.number]).corr()  # Compute correlation matrix
+sns.heatmap(
+    numeric_corr,
+    annot=True,
+    fmt=".2f",  # Format numbers to 2 decimal places
+    cmap="coolwarm",
+    linewidths=0.5,  # Borders between cells
+    cbar_kws={"shrink": 0.8}  # Shrink color bar for nicer fit
+)
+plt.title("Correlation Heatmap of Numeric Features", fontsize=14)
+plt.xticks(rotation=45, ha='right')  # Rotate labels for clarity
+plt.yticks(rotation=0)
+plt.tight_layout()  # Prevent label cutoff
 plt.show()
+
 
 # Proportion of positive triggers
 plt.figure(figsize=(6, 6))
