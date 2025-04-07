@@ -33,3 +33,16 @@ plt.title("Top 10 Trigger Words")
 plt.xlabel("Number of Occurrences")
 plt.ylabel("Trigger word")
 plt.show()
+
+# Correlation heatmap (numeric fields)
+plt.figure(figsize=(8, 6))
+sns.heatmap(df.select_dtypes(include=[np.number]).corr(), annot=True, cmap="coolwarm")
+plt.title("Correlation Heatmap of Numeric Features")
+plt.show()
+
+# Proportion of positive triggers
+plt.figure(figsize=(6, 6))
+df['IsPositiveTrigger'].value_counts().plot.pie(autopct='%1.1f%%', colors=['red', 'green'])
+plt.title('Proportion of Positive vs. Negative Triggers')
+plt.ylabel('')
+plt.show()
