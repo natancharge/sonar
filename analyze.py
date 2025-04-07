@@ -47,6 +47,7 @@ plt.title('Proportion of Positive vs. Negative Triggers')
 plt.ylabel('')
 plt.show()
 
+
 def get_recommendations(level: int) -> str:
     recommendations = {
         1: """🟢 רמה 1 – נמוכה מאוד:
@@ -54,7 +55,7 @@ def get_recommendations(level: int) -> str:
 - צא לטיול קצר 🚶‍♂️
 - כתוב יומן רגשי חיובי 📓
 - שתף חבר בתחושות קלות 🗣️""",
-        
+
         2: """🟡 רמה 2 – נמוכה:
 - תרגול נשימות עמוקות 🧘‍♂️
 - מדיטציה מונחית קצרה (5-10 דק׳) 🧘‍♀️
@@ -87,5 +88,8 @@ def get_recommendations(level: int) -> str:
     }
 
     return recommendations.get(level, "רמת סיווג לא חוקית. אנא בחר מספר בין 1 ל-6.")
-advice = get_recommendations(4)
-print(advice)
+
+
+# Testing succeded
+'''advice = get_recommendations(4)
+print(advice)'''
